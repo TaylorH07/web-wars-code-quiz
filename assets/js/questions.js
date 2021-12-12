@@ -9,4 +9,14 @@ var questions = [
         choices: ['.length', 'yes/no', 'confrim/deny'],
         answer: 'true/false',
     },
+    {
+    title: "which are the following are valid string methids",
+        choices: ['.length', 'yes/no', 'confrim/deny'],
+        answer: 'true/false',
+    },
+    {
+    title: "which are the following are valid string methids",
+        choices: ['.length', 'yes/no', 'confrim/deny'],
+        answer: 'true/false',
+    },
 ];
