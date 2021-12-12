@@ -2,6 +2,7 @@ var startBtn = document.getElementById("start");
 var timerEl = document.getElementById("timer");
 var contentDiv = document.getElementById("content");
 var qDiv = document.getElementById("questions");
+var stopBtn = document.getElementById("end")
 
 var time = 100;
 var timerInterval;
@@ -24,6 +25,10 @@ function startQuiz() {
 };
 
 function endQuiz() {
+    
+
+
+
     clearInterval(timerInterval);
 };
 
