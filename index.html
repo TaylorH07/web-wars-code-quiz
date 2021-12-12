@@ -8,20 +8,27 @@
 
 </head>
 <body>
+
+    <h1>Wild Wild Web Wars</h1>
+
+    <!--start/ timer button-->
     <div class="content">
         <button id="start"> Start</button>
         <span id="timer"></span>
     </div>
 
+    <!--begin questions-->
+
     <div id="questions">
 
     </div>
 
-    <div class="end">
-        <button id="end">Congrats! Let's See What You Scored</button>
-    </div>
+    <!--end and score quiz-->
 
+    
+
+    <script src="./assets/js/endGame.js"></script>
     <script src="./assets/js/questions.js"></script>
-    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/script.js"> localStorage.setItem("name","score") </script>
 </body>
 </html>

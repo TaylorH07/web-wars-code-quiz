@@ -17,19 +17,18 @@ function startQuiz() {
         
         if (time <= 0) {
             endQuiz();
-        }
+        } 
     }, 1000);
 
     gameIndex++;
     showQuestion();
 };
 
-function endQuiz() {
-    
-
-
+function endQuiz() { 
+    timerEl.textContent = time;
 
     clearInterval(timerInterval);
+
 };
 
 function showQuestion() {
@@ -68,5 +67,7 @@ function checkAnswer(event) {
     gameIndex++
     showQuestion();
 };
+
+
 
 startBtn.onclick = startQuiz;

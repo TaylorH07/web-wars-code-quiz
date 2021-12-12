@@ -25,4 +25,6 @@ var questions = [
         choices: ['Pink', 'Brown', 'White', 'Orange'],
         answer: 'Pink',
     },
+    
 ];
+
