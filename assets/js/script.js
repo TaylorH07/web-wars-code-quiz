@@ -1,18 +1,18 @@
 //dom
 
-var startBtn = document.getElementById("#start");
-var timerEl = document.getElementById("#timer");
-var contentDiv = document.getElementById("#content");
-var qDiv = document.getElementById("#questions");
-var endBtn = document.getElementById("#end")
-var score = document.getElementById("#scoreQuiz")
+var startBtn = document.getElementById("start");
+var timerEl = document.getElementById("timer");
+var contentDiv = document.getElementById("content");
+var qDiv = document.getElementById("questions");
+// var endBtn = document.getElementById("#end")
+// var score = document.getElementById("#scoreQuiz")
 
 
 
 // variables
 var time = 100;
 var timerInterval;
-var counter = 0;
+// var counter = 0;
 
 var gameIndex = -1;
 
@@ -67,10 +67,10 @@ function checkAnswer(event) {
 
     if (choice === answer) {
         gameIndex++;
-        counter++;
+        // counter++;
         console.log("You got it!")
     } else {
-        gameIndex++
+        // gameIndex++
         time -= 10;
         console.log("NOPE!!!")
     }
@@ -81,11 +81,11 @@ function checkAnswer(event) {
 
 
 //end quiz
-function endScore(){
-    var score = scores[gameIndex]
-    score.innerHTML = '';
+// function endScore(){
+//     var score = scores[gameIndex]
+//     score.innerHTML = '';
 
-}
+// }
 
 
 //local storage
@@ -95,4 +95,4 @@ localStorage.setItem('name', 'score');
 
 //start quiz
 startBtn.onclick = startQuiz;
-endBtn.onclick = endScore;
+// endBtn.onclick = endScore;

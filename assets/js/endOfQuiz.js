@@ -1,4 +1,4 @@
-var enterScore = {
-    title: "",
-    score: ""
-};
+// var enterScore = {
+//     title: "",
+//     score: ""
+// };
