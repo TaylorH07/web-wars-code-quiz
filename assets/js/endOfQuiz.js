@@ -1,0 +1,4 @@
+var enterScore = {
+    title: "",
+    score: ""
+};

@@ -1,15 +1,18 @@
 //dom
 
-var startBtn = document.getElementById("start");
-var timerEl = document.getElementById("timer");
-var contentDiv = document.getElementById("content");
-var qDiv = document.getElementById("questions");
-var scoreQuiz
+var startBtn = document.getElementById("#start");
+var timerEl = document.getElementById("#timer");
+var contentDiv = document.getElementById("#content");
+var qDiv = document.getElementById("#questions");
+var endBtn = document.getElementById("#end")
+var score = document.getElementById("#scoreQuiz")
+
 
 
 // variables
 var time = 100;
 var timerInterval;
+var counter = 0;
 
 var gameIndex = -1;
 
@@ -28,7 +31,7 @@ function startQuiz() {
     showQuestion();
 }
 
-//end quiz
+//end timer
 function endQuiz() {
 
     clearInterval(timerInterval);
@@ -64,8 +67,10 @@ function checkAnswer(event) {
 
     if (choice === answer) {
         gameIndex++;
+        counter++;
         console.log("You got it!")
     } else {
+        gameIndex++
         time -= 10;
         console.log("NOPE!!!")
     }
@@ -75,11 +80,19 @@ function checkAnswer(event) {
 };
 
 
+//end quiz
+function endScore(){
+    var score = scores[gameIndex]
+    score.innerHTML = '';
+
+}
+
+
 //local storage
-var saveTasks = function() {
-    localStorage.setItem("name", JSON.stringify(score));
-  }
+myStorage = window.localStorage;
+localStorage.setItem('name', 'score');
 
 
 //start quiz
 startBtn.onclick = startQuiz;
+endBtn.onclick = endScore;
