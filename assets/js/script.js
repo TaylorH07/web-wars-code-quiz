@@ -1,16 +1,19 @@
+//dom
+
 var startBtn = document.getElementById("start");
 var timerEl = document.getElementById("timer");
 var contentDiv = document.getElementById("content");
 var qDiv = document.getElementById("questions");
-var endQuiz = document.getElementById("endQuiz")
+var scoreQuiz
 
 
+// variables
 var time = 100;
 var timerInterval;
 
 var gameIndex = -1;
 
-
+//start quiz
 function startQuiz() {
     timerEl.textContent = time;
     timerInterval = setInterval(function () {
@@ -25,11 +28,13 @@ function startQuiz() {
     showQuestion();
 }
 
+//end quiz
 function endQuiz() {
 
     clearInterval(timerInterval);
-}
+};
 
+// showing questions
 function showQuestion() {
     var question = questions[gameIndex];
     qDiv.innerHTML = '';
@@ -52,6 +57,7 @@ function showQuestion() {
     qDiv.append(questionDiv);
 };
 
+//check answer
 function checkAnswer(event) {
     var answer = event.target.getAttribute("data-answer");
     var choice = event.target.textContent;
@@ -68,9 +74,12 @@ function checkAnswer(event) {
     showQuestion();
 };
 
+
+//local storage
 var saveTasks = function() {
     localStorage.setItem("name", JSON.stringify(score));
   }
 
 
+//start quiz
 startBtn.onclick = startQuiz;
