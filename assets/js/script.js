@@ -4,6 +4,8 @@ var startBtn = document.getElementById("start");
 var timerEl = document.getElementById("timer");
 var contentDiv = document.getElementById("content");
 var qDiv = document.getElementById("questions");
+var scoreEl = document.getElementById("score")
+console.log('scoreEl', scoreEl)
 // var endBtn = document.getElementById("#end")
 // var score = document.getElementById("#scoreQuiz")
 
@@ -12,9 +14,10 @@ var qDiv = document.getElementById("questions");
 // variables
 var time = 100;
 var timerInterval;
-// var counter = 0;
 
-var gameIndex = -1;
+var score = 0;
+
+var questionIndex = -1;
 
 //start quiz
 function startQuiz() {
@@ -27,7 +30,7 @@ function startQuiz() {
         }
     }, 1000);
 
-    gameIndex++;
+    questionIndex++;
     showQuestion();
 }
 
@@ -39,7 +42,17 @@ function endQuiz() {
 
 // showing questions
 function showQuestion() {
-    var question = questions[gameIndex];
+    console.log('questionIndex', questionIndex)
+
+    if (questionIndex > questions.length) { 
+
+        endQuiz();
+    }
+
+    showScore();
+    console.log('showScore', score)
+
+    var question = questions[questionIndex];
     qDiv.innerHTML = '';
 
     var questionDiv = document.createElement("div");
@@ -52,37 +65,42 @@ function showQuestion() {
         var choice = question.choices[i];
 
         btnEl.textContent = choice;
-        btnEl.onclick = checkAnswer
-        btnEl.setAttribute("data-answer", question.answer);
+        btnEl.onclick = function (event){checkAnswer(event,question.answer)};
+        // btnEl.setAttribute("data-answer", question.answer);
         questionDiv.append(btnEl);
-    }
+    } 
 
     qDiv.append(questionDiv);
 };
 
+
 //check answer
-function checkAnswer(event) {
-    var answer = event.target.getAttribute("data-answer");
+function checkAnswer(event, correctAnswer) {
+    // var answer = event.target.getAttribute("data-answer");
+
     var choice = event.target.textContent;
 
-    if (choice === answer) {
-        gameIndex++;
-        // counter++;
+    if (choice === correctAnswer) {
+        questionIndex++;
+        score++;
         console.log("You got it!")
     } else {
-        // gameIndex++
+        questionIndex++
         time -= 10;
         console.log("NOPE!!!")
     }
     
-    gameIndex++
+    // questionIndex++
     showQuestion();
 };
 
+function showScore(){
+    scoreEl.textContent = score;
+};
 
 //end quiz
 // function endScore(){
-//     var score = scores[gameIndex]
+//     var score = scores[questionIndex];
 //     score.innerHTML = '';
 
 // }
